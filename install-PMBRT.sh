@@ -33,4 +33,4 @@ CRON_JOB="0 3 * * 0 /usr/local/bin/proxmox-my_backup.sh >> /var/log/proxmox-week
 ( crontab -l 2>/dev/null; echo "$CRON_JOB" ) | crontab -
 echo "✅ Cron job aggiunto."
 
-echo "🎉 Installazione completata!"
+echo "🎉 Installazione completata! I files in questa directory non sono più necessari, puoi eliminarli tu."

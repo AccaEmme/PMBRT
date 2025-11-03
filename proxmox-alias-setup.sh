@@ -7,8 +7,8 @@ BASHRC="$HOME/.bashrc"
 ALIASES=$(cat <<EOF
 
 # === Proxmox Backup & Restore Aliases ===
-alias proxmox_my_backup='/usr/local/bin/proxmox-backup.sh'
-alias proxmox_my_restore='/usr/local/bin/proxmox-restore.sh --source \$(ls -t /root/proxmox-backup-*.tar.gz | head -n1)'
+alias proxmox_my_backup='/usr/local/bin/proxmox-my_backup.sh'
+alias proxmox_my_restore='/usr/local/bin/proxmox-my_restore.sh --source \$(ls -t /root/proxmox-backup-*.tar.gz | head -n1)'
 # ========================================
 EOF
 )

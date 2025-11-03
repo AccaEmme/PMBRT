@@ -12,7 +12,7 @@ show_help() {
   echo "  --include-images   Include VM/container disk images in the backup"
   echo "  --dest PATH        Set custom destination path for the backup file"
   echo "  --help             Show this help message"
-  exit 0
+  #exit 0
 }
 
 # Parse arguments
@@ -29,13 +29,22 @@ done
 # Build exclude options
 EXCLUDES=""
 if [ "$INCLUDE_IMAGES" = false ]; then
-  EXCLUDES="--exclude=/var/lib/vz/images/* --exclude=/var/lib/vz/dump/*"
+  EXCLUDES="--exclude='/var/lib/vz/images' \
+--exclude='/var/lib/vz/images/*' \
+--exclude='/var/lib/vz/dump' \
+--exclude='/var/lib/vz/dump/*' \
+--exclude='/var/lib/vz/template/iso' \
+--exclude='/var/lib/vz/template/iso/*' \
+--exclude='/var/lib/vz/template/cache' \
+--exclude='/var/lib/vz/template/cache/*'"
 fi
 
 # Run backup
+echo Inizio il backup
+show_help
+
 echo "Creating backup at: $DEST"
-tar czvf "$DEST" \
-  /etc/pve \
-  /etc/network/interfaces \
-  /var/lib/vz \
-  $EXCLUDES
+#tar czvf "$DEST" /etc/pve /etc/network/interfaces /var/lib/vz $EXCLUDES
+eval tar czvf "$DEST" $EXCLUDES /etc/pve /etc/network/interfaces /var/lib/vz
+
+

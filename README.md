@@ -49,8 +49,8 @@ source ~/.bashrc
 git clone https://github.com/AccaEmme/PMBRT.git
 cd PMBRT
 ls -alh
-chmod +x install-proxmox-backup-suite.sh
-./install-proxmox-backup-suite.sh
+chmod +x install-PMBRT.sh
+./install-PMBRT.sh
 ```
 
 ---
